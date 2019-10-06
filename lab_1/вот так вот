@@ -10,44 +10,39 @@ def calculate_frequences(text: str):
         return super_dict
     text = str(text)
     text_lower = text.lower()
+    symbol = []
     for s in text_lower:
         if not s.isalpha():
-            text_lower = text_lower.replace(s, " ")
-    split = text_lower.split()
+            text_lower = lower_text.replace(s, ' ')
+    split = text.split()
     for word in split:
-        word = word.lower()
+        word = key.lower()
         if word in super_dict:
             value = super_dict[word]
             super_dict[word] = value+1
         else:
             super_dict[word] = 1
     return super_dict
+    print(calculate_frequences(text))
 
 
 
-def filter_stop_words(super_dict, stop_words: tuple):
+
+def filter_stop_words(super_dict, stop_words):
     dict_filter = {}
     if super_dict is not None and stop_words is not None:
-        for k, v in super_dict.items():
+        for k,v in super_dict.items():
             if k == str(k):
                 if k not in stop_words:
                     dict_filter.update({k: v})
-
     return dict_filter
 
 
 
+    pass
 
-
-def get_top_n(super_dict: dict, top_n: int):
-    if not isinstance(top_n, int):
-        super_dict = ()
-        return super_dict
-    if top_n < 0:
-        top_n = 0
-    elif top_n > len(super_dict):
-        top_n = len(super_dict)
-    words_top = sorted(super_dict, key=lambda x: int(super_dict[x]), reverse=True)
-    top_of_the_top = tuple(words_top[:top_n])
-    return top_of_the_top
-
+def get_top_n(frequencies: dict, top_n: int) :
+    list1 = []
+    list2 = []
+    if top_n
+    pass
