@@ -12,7 +12,7 @@ def calculate_frequences(text: str) :
     text_lower = text.lower()
     for s in text_lower:
         if not s.isalpha():
-            text_lower = text_lower.replace(s, '')
+            text_lower = text_lower.replace(s, ' ')
     split = text_lower.split()
     for word in split:
         word = word.lower()
@@ -23,7 +23,7 @@ def calculate_frequences(text: str) :
             super_dict[word] = 1
     return super_dict
 
-def filter_stop_words(dict_filter: dict, stop_words: tuple) -> dict:
+def filter_stop_words(super_dict: dict, stop_words: tuple) -> dict:
     dict_filter = {}
     if super_dict is not None and stop_words is not None:
         for k, v in super_dict.items():
